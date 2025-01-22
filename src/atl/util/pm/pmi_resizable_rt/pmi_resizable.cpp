@@ -96,6 +96,7 @@ atl_status_t pmi_resizable::pmrt_main_addr_reserve(char *addr) {
 }
 
 atl_status_t pmi_resizable::pmrt_set_resize_function(atl_resize_fn_t resize_fn) {
+#pragma GCC diagnostic ignored "-Wcast-function-type-mismatch" // Workaround to supress compilation error.  
     if (PMIR_set_resize_function((pmir_resize_fn_t)resize_fn) != KVS_STATUS_SUCCESS)
         return ATL_STATUS_FAILURE;
 
